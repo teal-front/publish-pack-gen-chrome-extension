@@ -1,0 +1,31 @@
+ {
+ 	"version": "1.0.6",
+ 	"manifest_version": 2,
+ 	"name": "auto_package_for_svn",
+ 	"author": "teal",
+ 	"icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "background": {
+        "scripts": ["scripts/background.js"]
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "options_page": "options.html",
+    "permissions": [
+        "background",
+        "storage",
+    	"downloads",
+    	"webRequest"
+    ],
+
+    "browser_action": {
+	    "default_icon": {
+	        "19": "images/icon16.png",
+	        "38": "images/icon16.png"
+	    },
+	    "default_title": "pack now!",
+	    "default_popup": "popup.html"
+    }
+ }
