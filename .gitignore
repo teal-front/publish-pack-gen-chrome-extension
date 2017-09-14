@@ -1,0 +1,4 @@
+/node_modules
+/db
+/package-export
+package-lock.json
