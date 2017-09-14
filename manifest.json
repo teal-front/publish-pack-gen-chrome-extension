@@ -1,5 +1,5 @@
  {
- 	"version": "1.0.6",
+ 	"version": "1.1.6",
  	"manifest_version": 2,
  	"name": "auto_package_for_svn",
  	"author": "teal",
@@ -17,7 +17,8 @@
         "background",
         "storage",
     	"downloads",
-    	"webRequest"
+    	"webRequest",
+        "notifications"
     ],
 
     "browser_action": {
@@ -27,5 +28,8 @@
 	    },
 	    "default_title": "pack now!",
 	    "default_popup": "popup.html"
-    }
+    },
+    "web_accessible_resources": [
+        "images/icon48.png"
+    ]
  }
