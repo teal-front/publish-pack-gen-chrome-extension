@@ -30,30 +30,30 @@
 	    <thead>
 	        <tr>
 	            <th>
-	            	<input type="checkbox" name="revision" id="chk-<%=i%>" value="<%=d.$.revision%>">
+	            	<input type="checkbox" name="revision" id="chk-<%=i%>" value="<%=d.commitId%>">
 	            </th>
 	            <th>
 	            	<label for="chk-<%=i%>" class="pure-checkbox">
-	            		<%=d.date[0]%> r:<%=d.$.revision%> by:<%= d.author[0] %>
+	            		<%=d.date%> by: <%= d.author %>
 	            	</label>
 	            </th>
 	        </tr>
 	        <tr>
 	        	<th colspan="2">
 	        		<label for="chk-<%=i%>" class="pure-checkbox">
-	        			<%=d.msg[0]%>
+	        			<%=d.subject%>
 	        		</label>
 	        	</th>
 	        </tr>
-	    </thead>
+		</thead>
 	    <tbody>
-        	<% d.paths[0].path.forEach(function (path) { %>
+        	<% d.paths.forEach(function (path) { %>
 	        <tr class="pure-table-odd">
 	        	<td><%= path.$.action %></td>
 	            <td><%= path._ %></td>
 	        </tr>
 	        <% }) %>
-	    </tbody>
+		</tbody>
     </table>
     <% }) %>
 </script>

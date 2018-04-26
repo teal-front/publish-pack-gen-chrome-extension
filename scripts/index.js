@@ -3,12 +3,12 @@
 const URL = 'http://192.168.48.109:5200/'
 
 $('#author').value = localStorage.getItem('author') || '';
-document.addEventListener('DOMContentLoaded', function() {
+function init (firstRepo) {
     // 获得默认版本
-    getRevision()
+    getRevision(firstRepo)
     // 建立WebSocket连接
     setMessage2Background('initilizeWebsocket')
-}, false)
+}
 
 // bind event
 get(`${URL}get-repo-config`, function(data) {
@@ -21,6 +21,10 @@ get(`${URL}get-repo-config`, function(data) {
         html.push(_html);
     });
     $('#repos').innerHTML = html.join('');
+
+    if(data.length) {
+        init(data[0].name)
+    }
 })
 
 $('#repos').addEventListener('change', function() {
@@ -61,10 +65,10 @@ toArray($$('.js-download')).forEach(function(dom) {
 
 
 /// ------fns
-function getRevision() {
+function getRevision(repoName) {
     var params = {
         author: $('#author').value,
-        repoName: $('#repos').value
+        repoName: repoName || $('#repos').value
     }
 
     localStorage.setItem('author', params.author);
@@ -73,11 +77,15 @@ function getRevision() {
         var html = '',
             tmpl = $("#list").innerHTML;
 
-        if (data.log.logentry.length) {
-            var template = _.template(tmpl);
-            html = template({ data: data.log.logentry })
+        if (data.code === 200) {
+            if (data.result.length > 0) {
+                var template = _.template(tmpl);
+                html = template({ data: data.result })
+            } else {
+                html = $('#listEmpty').innerHTML;
+            }
         } else {
-            html = $('#listEmpty').innerHTML;
+            alert(data.result)
         }
 
         $('#lists').innerHTML = html;

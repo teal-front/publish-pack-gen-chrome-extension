@@ -1,19 +1,24 @@
 {
-  "name": "svnPackage-chrome-extension",
-  "version": "1.0.0",
-  "description": "svnPackage的Chrome extension源码\r main author: teal",
+  "name": "git-package-chrome-extension",
+  "version": "1.0.1",
+  "description": "gitPackage的Chrome extension源码",
   "main": "index.js",
+  "keywords": [
+	"chrome extension",
+	"package",
+	"ci",
+	"git"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@techdoc.oa.com:teal/svnPackage-chrome-extension.git"
+    "url": "git@github.com:teal-front/publish-pack-gen-chrome-extension.git"
   },
-  "dependencies": {
-    "websocket": "^1.0.24"
+  "peerDependencies": {
+	"peerDepenencies": "2.x"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC"
 }
